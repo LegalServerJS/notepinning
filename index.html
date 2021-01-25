@@ -69,11 +69,13 @@
                             - <a
                                href="/note/delete/16">Delete/Transfer</a>
                         </div>
-
+                    </div>
 <!-- Add this <script/> block to a second instruction at the bottom of the profile -->
                             <script type="text/javascript">
+                                var keyword = "#POP!"
 
-                                var importantNotes = document.evaluate("//div[@class='notes' and div[contains(text(),'#POP!')]]",
+
+                                var importantNotes = document.evaluate("//div[@class='notes' and div[contains(text(),'" + keyword + "')]]",
                                     document,
                                     null,
                                     XPathResult.ORDERED_NODE_ITERATOR_TYPE, null)

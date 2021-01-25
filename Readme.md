@@ -7,5 +7,60 @@ Notes with the special token will pop from the regular collection of case notes 
 
 Simply edit the note to remove _#POP!_ to restore the note to its original place. 
 
+
+## Administrator Instructions
+
 See index.html for a working example of the code.
+
+1. Add an instruction to a case profile that contains a `<div>` element with a special `id`. This element will serve as the container for pinned notes. 
+
+Make sure you format this instruction as HTML.
+
+```
+        <div id="popped-notes-container"
+             style="border: 1px black solid"></div>
+ 
+
+```
+
+2. Add a second instruction at the bottom of the case profile. Make sure to format this instruction as HTML as well.
+
+This instruction contains javascript code. The code finds all the notes with the special keyword, _#POP!_ and moves them into the `<div>` above.
+
+```
+                            <script type="text/javascript">
+
+                                var importantNotes = document.evaluate("//div[@class='notes' and div[contains(text(),'#POP!')]]",
+                                    document,
+                                    null,
+                                    XPathResult.ORDERED_NODE_ITERATOR_TYPE, null)
+
+                                var container = document.getElementById("popped-notes-container");
+                                var notes = []
+
+                                var nextNode = importantNotes.iterateNext()
+                                while (nextNode) {
+                                    console.log("adding node.")
+                                    notes.push(nextNode);
+                                    nextNode = importantNotes.iterateNext()
+                                }
+
+                                notes.forEach((note) => {
+                                    container.appendChild(note)
+                                })
+
+
+
+                            </script>
+
+```
+
+
+## Questions
+
+**Why would I pin case notes?** Staff may wish to highlight certain information, such as "Client prefers text to phone messages, except on Tuesdays, when they're at their aunt's house" that isn't structured enough for a custom field and not necessarily so urgent that it needs a "case alert". 
+
+**Can I change the keyword?** Yes! Find the line `var keyword = "#POP!"` and change the keyword to whatever you like.  
+
+
 

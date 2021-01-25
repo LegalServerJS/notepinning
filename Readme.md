@@ -5,12 +5,17 @@ Introduce two `html`-formatted Instruction blocks into a Case Profile, and your 
 
 Notes with the special token will pop from the regular collection of case notes into the first instruction. If you placed the first instruction at the top of the Case profile, then the 'Popped' notes will appear at the top of the Case Profile.
 
+## Instructions for case handlers
+
+To pin a note, just write the keyword, "#POP!" at the top of a note. The note will pop from its normal spot up to the container for pinned notes.
+
 Simply edit the note to remove _#POP!_ to restore the note to its original place. 
+
 
 
 ## Administrator Instructions
 
-See index.html for a working example of the code.
+Download index.html and open it in your browser for a working example of the code.
 
 1. Add an instruction to a case profile that contains a `<div>` element with a special `id`. This element will serve as the container for pinned notes. 
 

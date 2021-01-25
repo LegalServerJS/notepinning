@@ -1,0 +1,109 @@
+<html>
+
+
+
+    <body>
+        <h1>Example Case Profile</h1>
+        <h2> Alerts! </h2>
+
+        <!--- Add this to an html-formatted instruction-->
+        <div id="popped-notes-container"
+             style="border: 1px black solid"></div>
+        <!-- End Instruction-->
+        
+        <h2>
+            Case Info ...
+        </h2>
+
+
+        <h2> Notes </h2>
+
+        <div>
+
+            <div>
+
+                <div style='clear:both;'>
+                    <div class='notes'><a name="notes-2054166_0"> </a>
+                        <div class="title"><b>additional (Case Notes)</b>
+                            <br /><span class="whisper">Posted on 01/19/2021 by
+                                NATE C VOGEL</span> - <a
+                               href="/note/profile/edit/2">Edit</a>
+                            - <a
+                               href="/note/delete/2">Delete/Transfer</a>
+                        </div>
+                        <div class="body"
+                             style="">#POP!</div>
+                    </div>
+
+                    <div class='notes'><a name="notes-2"> </a>
+                        <div class="title"><b>test pop (Case Notes) *Will not
+                                E-Transfer*</b>
+                            <br /><span class="whisper">Posted on 01/19/2021 by
+                                NATE C VOGEL</span> - <a
+                               href="/note/profile/edit/26">Edit</a>
+                            - <a
+                               href="/note/delete/20">Delete/Transfer</a>
+                        </div>
+                        <div class="body"
+                             style="">#POP!<br />
+                            <br />
+                            Here's an important note.</div>
+                    </div>
+
+                    <div class='notes'><a name="notes-_2"> </a>
+                        <div class="title"><b>Document Request SSI Medical
+                                Records Request (Activity) *Will not E-Transfer*</b>
+                            <br /><span class="whisper">Posted on 08/18/2020 by
+                                JEREMY BEREMY</span> - <a
+                               href="/matter/process/dynamic_20/form_loader:44/edit/3">Edit</a>
+                        </div>
+                        <div class="body"
+                             style="">Testing note</div>
+                    </div>
+
+                    <div class='notes'><a name="notes-13"> </a>
+                        <div class="title"><b> (Intake Notes)</b>
+                            <br /><span class="whisper">Posted on 03/15/2019 by
+                                NATE C VOGEL</span> - <a
+                               href="/note/profile/edit/1?2">Edit</a>
+                            - <a
+                               href="/note/delete/16">Delete/Transfer</a>
+                        </div>
+
+<!-- Add this <script/> block to a second instruction at the bottom of the profile -->
+                            <script type="text/javascript">
+
+                                var importantNotes = document.evaluate("//div[@class='notes' and div[contains(text(),'#POP!')]]",
+                                    document,
+                                    null,
+                                    XPathResult.ORDERED_NODE_ITERATOR_TYPE, null)
+
+                                var container = document.getElementById("popped-notes-container");
+                                var notes = []
+
+                                var nextNode = importantNotes.iterateNext()
+                                while (nextNode) {
+                                    console.log("adding node.")
+                                    notes.push(nextNode);
+                                    nextNode = importantNotes.iterateNext()
+                                }
+
+                                notes.forEach((note) => {
+                                    container.appendChild(note)
+                                })
+
+
+
+                            </script>
+    </body>
+
+
+
+
+
+
+
+
+
+
+</html>
